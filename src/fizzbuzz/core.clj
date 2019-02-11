@@ -1,4 +1,6 @@
 (ns fizzbuzz.core)
 
 (defn generate [n]
-  "Fizz")
+  (cond
+    (zero? (rem n 3)) "Fizz"
+    (zero? (rem n 5)) "Buzz"))
