@@ -17,3 +17,7 @@
 (defspec generate-multiples-of-5-test
          (prop/for-all [n (multiples-of-n 5)]
                        (= (generate n) "Buzz")))
+
+(defspec generate-multiples-of-3-and-5-test
+         (prop/for-all [n (multiples-of-n 15)]
+                       (= (generate n) "FizzBuzz")))
