@@ -24,6 +24,9 @@
 (def multiples-of-15
   (gen/such-that #(and (multiple-of-15 %) (not= % 0)) gen/int 100))
 
+(def not-multiples-of-3-or-5
+  (gen/such-that #(and (not-multiple-of-5 %) (not-multiple-of-3 %)) gen/int 100))
+
 (defspec generate-multiples-of-3-test
   (prop/for-all [n multiples-of-3]
                 (= (generate n) "Fizz")))
@@ -35,3 +38,7 @@
 (defspec generate-multiples-of-3-and-5-test
   (prop/for-all [n multiples-of-15]
                 (= (generate n) "FizzBuzz")))
+
+(defspec generate-not-multiples-of-3-or-5-test
+  (prop/for-all [n not-multiples-of-3-or-5]
+                (= (generate n) (str n))))
