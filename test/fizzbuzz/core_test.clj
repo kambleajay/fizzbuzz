@@ -3,4 +3,4 @@
             [fizzbuzz.core :refer :all]))
 
 (deftest generate-test
-  (is (= 3 (generate 3))))
+  (is (= "Fizz" (generate 3))))
