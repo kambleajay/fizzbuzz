@@ -7,4 +7,5 @@
                  [org.clojure/test.check "0.9.0"]]
   :repl-options {:init-ns fizzbuzz.core}
   :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.23.0"]
-                             [lein-cljfmt "0.6.4"]]}})
+                             [lein-cljfmt "0.6.4"]
+                             [lein-kibit "0.1.6"]]}})
