@@ -5,10 +5,15 @@
             [clojure.test.check.properties :as prop]
             [clojure.test.check.clojure-test :refer [defspec]]))
 
-(def multiples-of-3 (->> gen/int
-                         (gen/fmap #(* % 3))
-                         (gen/such-that #(not= % 0))))
+(defn multiples-of-n [n]
+  (->> gen/int
+       (gen/fmap #(* % n))
+       (gen/such-that #(not= % 0))))
 
 (defspec generate-multiples-of-3-test
-  (prop/for-all [n multiples-of-3]
+  (prop/for-all [n (multiples-of-n 3)]
                 (= (generate n) "Fizz")))
+
+(defspec generate-multiples-of-5-test
+         (prop/for-all [n (multiples-of-n 5)]
+                       (= (generate n) "Buzz")))
