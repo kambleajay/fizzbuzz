@@ -22,7 +22,7 @@
   (gen/fmap #(* % 5) (gen/such-that #(and (not-multiple-of-3 %) (not= % 0)) gen/int 100)))
 
 (def multiples-of-15
-  (gen/such-that #(and (multiple-of-15 %) (not= % 0)) gen/int 100))
+  (gen/such-that #(and (multiple-of-15 %) (not= % 0)) gen/int 150))
 
 (def not-multiples-of-3-or-5
   (gen/such-that #(and (not-multiple-of-5 %) (not-multiple-of-3 %)) gen/int 100))
